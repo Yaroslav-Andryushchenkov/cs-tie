@@ -26,7 +26,7 @@ def get_sentence_phrase_list(sentence: str) -> List[str]:
 
 
 def get_phrase_embedding_list(phrase_list: List[str]) -> List[PhraseEmbedding]:
-    model = SentenceTransformer('all-mpnet-base-v2').to('cpu')
+    model = SentenceTransformer('all-mpnet-base-v2')
     embedding_list = model.encode(phrase_list)
     return [PhraseEmbedding(phrase, embedding) for phrase, embedding in zip(phrase_list, embedding_list)]
 
