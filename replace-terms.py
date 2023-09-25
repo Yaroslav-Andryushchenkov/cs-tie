@@ -10,6 +10,9 @@ from collections import namedtuple
 # turn off GPU, we don't need it
 os.environ["CUDA_VISIBLE_DEVICES"] = ""
 
+PhraseEmbedding = namedtuple('PhraseEmbedding', ['phrase', 'embedding'])
+Replacement = namedtuple('Replacement', ['phrase', 'term', 'similarity'])
+
 
 def get_sentence_phrase_list(sentence: str) -> List[str]:
     words = sentence.split()
@@ -20,10 +23,6 @@ def get_sentence_phrase_list(sentence: str) -> List[str]:
             phrase_list.append(" ".join(words[i:j + 1]))
 
     return phrase_list
-
-
-PhraseEmbedding = namedtuple('PhraseEmbedding', ['phrase', 'embedding'])
-Replacement = namedtuple('Replacement', ['phrase', 'term', 'similarity'])
 
 
 def get_phrase_embedding_list(phrase_list: List[str]) -> List[PhraseEmbedding]:
