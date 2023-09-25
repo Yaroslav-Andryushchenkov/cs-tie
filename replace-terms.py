@@ -91,13 +91,14 @@ if __name__ == "__main__":
     default_text_path = "sample_text.txt"
     default_terms_path = "terms.csv"
     default_result_path = "improved-text.txt"
-    default_threshold = 70
+    default_threshold = 0.7
 
     parser.add_argument("--text", type=str, default=default_text_path, help="Path to the text file.")
     parser.add_argument("--terms", type=str, default=default_terms_path, help="Path to the terms file.")
     parser.add_argument("--result", type=str, default=default_result_path, help="Path to save the result.")
-    parser.add_argument("--threshold", type=int, default=default_threshold, help="threshold.")
+    parser.add_argument("--threshold", type=float, default=default_threshold, help="Threshold.")
 
     args = parser.parse_args()
-
+    print('Start processing. Please wait')
     find_replacement(args.text, args.terms, args.result, args.threshold)
+    print('Finished')
